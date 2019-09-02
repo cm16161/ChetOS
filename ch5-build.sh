@@ -216,19 +216,21 @@ make INSTALL_HDR_PATH=dest headers_install
 cp -rv dest/include/* /tools/include
 cd $LFS/sources
 
-echo "# 5.7 Glibc-2.30"
+echo "# 5.7. Glibc-2.30"
 tar -Jxf glibc-2.30.tar.xz
 cd glibc-2.30
 mkdir -v build
 cd build
 ../configure                             \
-    --prefix=/tools                    \
-    --host=$LFS_TGT                    \
-    --build=$(../scripts/config.guess) \
-    --enable-kernel=3.2                \
-    --with-headers=/tools/include
-make -j1
+      --prefix=/tools                    \
+      --host=$LFS_TGT                    \
+      --build=$(../scripts/config.guess) \
+      --enable-kernel=3.2                \
+      --with-headers=/tools/include
+make -j $PARALLEL_JOBS
 make install
+# Compatibility symlink for non ld-linux-armhf awareness
+ln -sv ld-2.30.so $LFS/tools/lib/ld-linux.so.3
 cd $LFS/sources
 rm -rf glibc-2.30
 
@@ -259,11 +261,11 @@ CC=$LFS_TGT-gcc                \
 AR=$LFS_TGT-ar                 \
 RANLIB=$LFS_TGT-ranlib         \
 ../configure                   \
-  --prefix=/tools              \
-  --disable-nls                \
-  --disable-werror             \
-  --with-lib-path=/tools/lib   \
-  --with-sysroot
+    --prefix=/tools            \
+    --disable-nls              \
+    --disable-werror           \
+    --with-lib-path=/tools/lib \
+    --with-sysroot
 make -j $PARALLEL_JOBS
 make install
 make -C ld clean
