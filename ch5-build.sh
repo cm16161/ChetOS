@@ -80,7 +80,6 @@ tar-1.32.tar.xz
 texinfo-6.6.tar.xz
 xz-5.2.4.tar.xz
 "
-}
 
 for tarball in $LIST_OF_TARBALLS ; do
     if ! [[ -f $LFS/sources/$tarball ]] ; then
