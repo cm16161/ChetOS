@@ -15,7 +15,7 @@ function prebuild_sanity_check {
         exit 1
     fi
 
-    if ![[ -v LFS_TGT ]] ; then
+    if ! [[ -v LFS_TGT ]] ; then
         echo "You forgot to set the LFS_TGT environment variable!"
         exit 1
     fi
