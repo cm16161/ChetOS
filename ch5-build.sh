@@ -214,6 +214,7 @@ cd linux-5.2.8
 make mrproper
 make INSTALL_HDR_PATH=dest headers_install
 cp -rv dest/include/* /tools/include
+cd $LFS/sources
 
 echo "# 5.7 Glibc-2.30"
 tar -Jxf glibc-2.30.tar.xz
