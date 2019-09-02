@@ -229,6 +229,8 @@ cd build
     --with-headers=/tools/include
 make -j $PARALLEL_JOBS
 make install
+cd $LFS/sources
+rm -rf glibc-2.30
 
 echo "# 5.8. Libstdc++ from GCC-9.2.0"
 tar -Jxf gcc-9.2.0.tar.xz
