@@ -144,6 +144,9 @@ cd build
              --disable-werror
 
 make -j $PARALLEL_JOBS
+case $(uname -m) in
+    x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
+esac
 make install
 cd $LFS/sources
 rm -rf binutils-2.32
@@ -229,8 +232,6 @@ cd build
       --with-headers=/tools/include
 make -j $PARALLEL_JOBS
 make install
-# Compatibility symlink for non ld-linux-armhf awareness
-ln -sv ld-2.30.so $LFS/tools/lib/ld-linux.so.3
 cd $LFS/sources
 rm -rf glibc-2.30
 
