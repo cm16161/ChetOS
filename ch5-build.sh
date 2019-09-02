@@ -52,7 +52,7 @@ binutils-2.32.tar.xz
 gcc-9.2.0.tar.xz
 mpfr-4.0.2.tar.xz
 gmp-6.1.2.tar.xz
-mpc-1.1.0.tar.xz
+mpc-1.1.0.tar.gz
 linux-5.2.8.tar.xz
 glibc-2.30.tar.xz
 tcl8.6.9-src.tar.gz
