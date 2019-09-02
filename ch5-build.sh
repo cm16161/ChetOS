@@ -47,7 +47,7 @@ function prebuild_sanity_check {
 }
 
 function check_tarballs {
-LIST_OF_TARBALLS ="
+LIST_OF_TARBALLS="
 binutils-2.32.tar.xz
 gcc-9.2.0.tar.xz
 mpfr-4.0.2.tar.xz
@@ -78,7 +78,7 @@ Python-3.7.4.tar.xz
 sed-4.7.tar.xz
 tar-1.32.tar.xz
 texinfo-6.6.tar.xz
-xz-5.2.4.tar.xz   
+xz-5.2.4.tar.xz
 "
 }
 
