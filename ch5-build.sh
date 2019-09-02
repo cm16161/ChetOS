@@ -227,7 +227,7 @@ cd build
     --build=$(../scripts/config.guess) \
     --enable-kernel=3.2                \
     --with-headers=/tools/include
-make -j $PARALLEL_JOBS
+make -j1
 make install
 cd $LFS/sources
 rm -rf glibc-2.30
@@ -256,13 +256,13 @@ cd binutils-2.32
 mkdir -v build
 cd build
 CC=$LFS_TGT-gcc                \
-  AR=$LFS_TGT-ar                 \
-  RANLIB=$LFS_TGT-ranlib         \
-  ../configure                   \
-  --prefix=/tools            \
-  --disable-nls              \
-  --disable-werror           \
-  --with-lib-path=/tools/lib \
+AR=$LFS_TGT-ar                 \
+RANLIB=$LFS_TGT-ranlib         \
+../configure                   \
+  --prefix=/tools              \
+  --disable-nls                \
+  --disable-werror             \
+  --with-lib-path=/tools/lib   \
   --with-sysroot
 make -j $PARALLEL_JOBS
 make install
