@@ -400,7 +400,7 @@ echo "# 5.17. Bison-3.4.1"
 tar -Jxf bison-3.4.1.tar.xz
 cd bison-3.4.1
 ./configure --prefix=/tools
-make -j $PARALLEL_JOBS
+make
 make install
 cd $LFS/sources
 rm -rf bison-3.4.1
