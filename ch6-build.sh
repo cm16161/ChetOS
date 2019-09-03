@@ -3,7 +3,7 @@ PARALLEL_JOBS=16
 LOCAL_TIMEZONE=Europe/London
 GROFF_PAPER_SIZE=A4             # Use this default paper size for Groff. See "6.59. Groff-1.22.4".
 INSTALL_OPTIONAL_DOCS=1         # Install optional documentation when given a choice?
-INSTALL_ALL_LOCALES=1           # Install all glibc locales? By default only en_US.ISO-8859-1 and en_US.UTF-8 are installed.
+INSTALL_ALL_LOCALES=0           # Install all glibc locales? By default only en_US.ISO-8859-1 and en_US.UTF-8 are installed.
 INSTALL_SYSTEMD_DEPS=1          # Install optional systemd dependencies? (Attr, Acl, Libcap, Expat, XML::Parser, Intltool, libffi, Meson, Ninja, Python)
 # End of optional parameters
 
@@ -215,6 +215,7 @@ if [[ $INSTALL_ALL_LOCALES = 1 ]] ; then
     make localedata/install-locales
 else
     mkdir -pv /usr/lib/locale
+    localedef -i en_GB -f ISO-8859-1 en_GB
     localedef -i en_GB -f UTF-8 en_GB.UTF-8
     localedef -i en_US -f ISO-8859-1 en_US
     localedef -i en_US -f UTF-8 en_US.UTF-8
