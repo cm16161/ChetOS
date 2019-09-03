@@ -370,7 +370,7 @@ cd gmp-6.1.2
 make -j $PARALLEL_JOBS
 make html
 #make check 2>&1 | tee gmp-check-log
-awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
+#awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
 make install
 make install-html
 cd /sources
@@ -446,7 +446,7 @@ SED=sed                               \
              --disable-bootstrap      \
              --with-system-zlib
 make -j $PARALLEL_JOBS
-ulimit -s 32768
+#ulimit -s 32768
 #chown -Rv nobody .
 #su nobody -s /bin/bash -c "PATH=$PATH make -k check"
 make install
