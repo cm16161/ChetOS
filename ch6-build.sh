@@ -205,7 +205,7 @@ case $(uname -m) in
     i?86)   ln -sfnv $PWD/elf/ld-linux.so.2        /lib ;;
     x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
 esac
-make check
+#make check
 touch /etc/ld.so.conf
 sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
 make install
@@ -355,7 +355,7 @@ cd build
              --with-system-zlib
 # Compiling gold chokes on parallel jobs
 make tooldir=/usr
-make -k check
+#make -k check
 make tooldir=/usr install
 cd /sources
 rm -rf binutils-2.32
@@ -369,7 +369,7 @@ cd gmp-6.1.2
             --docdir=/usr/share/doc/gmp-6.1.2
 make -j $PARALLEL_JOBS
 make html
-make check 2>&1 | tee gmp-check-log
+#make check 2>&1 | tee gmp-check-log
 awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
 make install
 make install-html
@@ -385,7 +385,7 @@ cd mpfr-4.0.2
              --docdir=/usr/share/doc/mpfr-4.0.2
 make -j $PARALLEL_JOBS
 make html
-make check
+#make check
 make install
 make install-html
 cd /sources
@@ -447,8 +447,8 @@ SED=sed                               \
              --with-system-zlib
 make -j $PARALLEL_JOBS
 ulimit -s 32768
-chown -Rv nobody .
-su nobody -s /bin/bash -c "PATH=$PATH make -k check"
+#chown -Rv nobody .
+#su nobody -s /bin/bash -c "PATH=$PATH make -k check"
 make install
 rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/
 chown -v -R root:root /usr/lib/gcc/*linux-gnu*/9.2.0/include{,-fixed}
