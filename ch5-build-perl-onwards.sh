@@ -1,3 +1,8 @@
+PARALLEL_JOBS=16
+
+set -o nounset
+set -o errexit
+
 function prebuild_sanity_check {
     if [[ $(whoami) != "lfs" ]] ; then
         echo "Not running as user lfs, you should be!"
@@ -39,6 +44,23 @@ function prebuild_sanity_check {
         exit 1
     fi
 }
+
+function timer {
+    if [[ $# -eq 0 ]]; then
+        echo $(date '+%s')
+    else
+        local stime=$1
+        etime=$(date '+%s')
+        if [[ -z "$stime" ]]; then stime=$etime; fi
+        dt=$((etime - stime))
+        ds=$((dt % 60))
+        dm=$(((dt / 60) % 60))
+        dh=$((dt / 3600))
+        printf '%02d:%02d:%02d' $dh $dm $ds
+    fi
+}
+
+total_time=$(timer)
 
 echo "# 5.29. Perl-5.30.0"
 tar -Jxf perl-5.30.0.tar.xz
@@ -96,3 +118,8 @@ make -j $PARALLEL_JOBS
 make install
 cd $LFS/sources
 rm -rf xz-5.2.4
+
+echo -e "----------------------------------------------------"
+echo -e "\nYou made it! This is the end of chapter 5!"
+printf 'Total script time: %s\n' $(timer $total_time)
+echo -e "Now continue reading from \"5.36. Changing Ownership\""
