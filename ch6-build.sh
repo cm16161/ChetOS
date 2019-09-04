@@ -1001,6 +1001,8 @@ cd grub-2.04/
 make -j $PARALLEL_JOBS
 make install
 mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
+cd /sources
+rm -rf grub-2.04/
 
 echo "# 6.61. Less-551"
 tar -zxf less-551.tar.gz
