@@ -1,10 +1,3 @@
-#!/bin/bash
-
-if [[ $(whoami) != "lfs" ]] ; then
-    echo "Not running as user lfs, you should be!"
-    exit 1
-fi
-
 mkdir -pv /{bin,boot,etc/{opt,sysconfig},home,lib/firmware,mnt,opt}
 mkdir -pv /{media/{floppy,cdrom},sbin,srv,var}
 install -dv -m 0750 /root
