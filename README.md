@@ -11,22 +11,36 @@ You can find the book: [here](http://www.linuxfromscratch.org/lfs/downloads/stab
 
 ## Chapter 5 ##
 
-Chapter 5 needs to be built in 2 steps with both scripts:
+Chapter 5 needs to be built by executing:
   * ch5-build.sh
-  * ch5-build-perl-onwards.sh
-
-This is because the first script fails once it gets to Perl.
-The second script will build Perl and everything else that needs doing afterwards.
 
 **Chapter 5 is ~= 45.1 SBU's**
 
 ## Chapter 6 ##
 
-
+Chapter 6 needs to be run in the following order:
+  * createVirtualFilesystems.sh
+  * createDirectories.sh
+  * moveFiles.sh
+  * initialiseLogFiles.sh
+  * ch6-build.sh 
+  * cleaningUp.sh
 
 
 **Chapter 6 is ~= 171 SBU's**
-*With Tests*
+This process on average takes about twice as long as Chapter 5
 
-It is possible to change the script to not include tests in which case, the total build time
-for Chapter 6 is roughly the same as Chapter 5
+<<<<<<< HEAD
+
+=======
+>>>>>>> bd9e138... Update README.md
+## Chapter 7 ##
+
+Chapter 7 can be completed by running:
+  * ch7-build.sh
+  
+## Chapter 8 ##
+
+Chapter 8 can be completed by running:
+  * ch8-build.sh
+ 
