@@ -30,10 +30,6 @@ Chapter 6 needs to be run in the following order:
 **Chapter 6 is ~= 171 SBU's**
 This process on average takes about twice as long as Chapter 5
 
-<<<<<<< HEAD
-
-=======
->>>>>>> bd9e138... Update README.md
 ## Chapter 7 ##
 
 Chapter 7 can be completed by running:
